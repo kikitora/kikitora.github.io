@@ -191,7 +191,16 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo">TL</div>
+        <div class="logo">
+  <img src="logo.png" alt="TORA'S LAB logo">
+          .logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display:block;
+}
+</div>
         <div>
           <h1>TORA’S LAB</h1>
           <p>Unity tools & small web projects</p>
@@ -289,4 +298,5 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
