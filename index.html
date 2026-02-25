@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TORA’S LAB — Publisher</title>
+  <meta name="description" content="TORA’S LAB — Unity tools and small web projects. Support: X and email." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="TORA’S LAB" />
+  <meta property="og:description" content="Unity tools and small web projects. Support: X and email." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#071827;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.08);
+      --text:#e9f4ff;
+      --muted:rgba(233,244,255,.75);
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
+      --accent:#0ea5e9;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 18% 10%, rgba(14,165,233,.35), transparent 60%),
+        radial-gradient(700px 440px at 86% 22%, rgba(34,197,94,.18), transparent 58%),
+        radial-gradient(560px 360px at 50% 95%, rgba(255,255,255,.08), transparent 55%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.95}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:44px 18px 66px}
+
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:8px 0 18px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(14,165,233,.95), rgba(34,197,94,.70));
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.18);
+      display:grid; place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+
+    .brand h1{margin:0; font-size:18px}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      font-size:13px;
+      gap:8px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(14,165,233,.95), rgba(14,165,233,.55));
+      border-color: rgba(14,165,233,.7);
+      box-shadow: 0 10px 22px rgba(14,165,233,.18);
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      padding:6px 10px; border-radius:999px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent);
+      box-shadow:0 0 0 4px rgba(14,165,233,.18);
+    }
+
+    .hero h2{margin:0; font-size:30px; line-height:1.15}
+    .hero .lead{margin:0; color:var(--muted); font-size:14px; max-width:74ch}
+
+    .section{margin-top:18px}
+    .sectionTitle{
+      margin:0 0 10px;
+      font-size:14px;
+      color:rgba(233,244,255,.85);
+      letter-spacing:.2px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+
+    .item{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .badge{
+      display:inline-block;
+      font-size:11px;
+      padding:5px 9px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color:rgba(233,244,255,.78);
+      width:fit-content;
+    }
+
+    .item h3{margin:0; font-size:15px}
+    .item p{margin:0; font-size:13px; color:var(--muted)}
+
+    .note{
+      margin-top:2px;
+      font-size:12px;
+      color:rgba(233,244,255,.68);
+      border-left:3px solid rgba(255,255,255,.18);
+      padding-left:10px;
+    }
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:2px}
+    .actions .btn{padding:9px 11px; font-size:12.5px}
+
+    .footer{
+      margin-top:22px;
+      padding:16px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      color:rgba(233,244,255,.7);
+      font-size:12px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 900px){
+      .grid{grid-template-columns: 1fr}
+      .hero h2{font-size:26px}
+      nav{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">TL</div>
+        <div>
+          <h1>TORA’S LAB</h1>
+          <p>Unity tools & small web projects</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn" href="#works">Works</a>
+        <a class="btn" href="#support">Support</a>
+        <a class="btn" href="https://twitter.com/kiki_toraichi8" target="_blank" rel="noopener">X</a>
+        <a class="btn primary" href="mailto:freesiatob@gmail.com">Email</a>
+      </nav>
+    </header>
+
+    <section class="card hero">
+      <div class="kicker"><span class="dot"></span> Publisher site for Unity Asset Store</div>
+      <h2>Tools and small projects by TORA’S LAB.</h2>
+      <p class="lead">
+        We publish Unity Editor extensions and small web projects.
+        For questions or support, contact us via X or email.
+      </p>
+    </section>
+
+    <section class="section" id="works">
+      <h3 class="sectionTitle">Works</h3>
+
+      <div class="grid">
+        <!-- Unity Asset -->
+        <section class="card item">
+          <span class="badge">Unity Asset</span>
+          <h3>Editor Color Tagger</h3>
+          <p>Color-tag and search Hierarchy objects and Project assets to keep your Unity project organized.</p>
+          <div class="actions">
+            <!-- Replace this with the Asset Store URL once available -->
+            <a class="btn primary" href="#" target="_blank" rel="noopener">Asset Store Page</a>
+            <a class="btn" href="#support">Support</a>
+          </div>
+        </section>
+
+        <!-- Game -->
+        <section class="card item">
+          <span class="badge">Game</span>
+          <h3>DrawRain</h3>
+          <p>A small original web game prototype.</p>
+          <div class="note">
+            Note: Online matching is required — you need another player to start a match.
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://kikitora.github.io/DrawRain2/" target="_blank" rel="noopener">Open</a>
+          </div>
+        </section>
+
+        <!-- Site / Artbook -->
+        <section class="card item">
+          <span class="badge">Site</span>
+          <h3>BokuShizu</h3>
+          <p>A digital artbook featuring illustrations by a friend.</p>
+<div class="note">
+  Used with permission.
+</div>
+          <div class="actions">
+            <a class="btn primary" href="https://kikitora.github.io/BokuShizu/" target="_blank" rel="noopener">Open</a>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="support">
+      <h3 class="sectionTitle">Support / Contact</h3>
+      <section class="card" style="padding:16px">
+        <ul class="list">
+          <li>
+            X (Twitter):
+            <a href="https://twitter.com/kiki_toraichi8" target="_blank" rel="noopener"><strong>@kiki_toraichi8</strong></a>
+            <span style="opacity:.85">(DM or mention)</span>
+          </li>
+          <li>
+            Email:
+            <a href="mailto:freesiatob@gmail.com"><strong>freesiatob@gmail.com</strong></a>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="card footer">
+      <div>© <span id="y"></span> TORA’S LAB.</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap">
+        <a href="#works">Works</a>
+        <a href="#support">Support</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
